@@ -85,6 +85,45 @@ void drawScene(void)
    //*** clown3.cpp starts here. NOTE: Also leave the part for clown2.cpp above uncommented. ***
    glPushMatrix();
 
+   //transformations for left eye
+   glTranslatef(-1,0,0.5);
+   glRotatef(angle,0,0,1);
+
+   //left eye
+   glColor3f(0,angle/360,angle/360);
+   glutWireSphere(0.5 + cos(angle/10)/4,10,10);
+
+   glPopMatrix();
+
+   glPushMatrix();
+
+   //transformations for nose
+   glTranslatef(0,-1,0);
+   glRotatef(30, 1, 0, 0);
+
+   //nose
+   glColor3f(0,1 - (angle/360) ,1- (angle/360));
+   glutWireCone(0.5, 1 + sin(angle/10)/2, 10, 10);
+
+   glPopMatrix();
+
+   glPushMatrix();
+
+
+
+   //transformations for right eye
+   glTranslatef(1,0,0.5);
+   glRotatef(angle,0,0,1);
+
+   //right eye
+   glColor3f(angle/360 ,angle/360,0);
+   glutWireSphere(0.5 + cos(angle/10)/4,10,10);
+
+   glPopMatrix();
+
+
+   glPushMatrix();
+
    // Transformations of the left ear.
    glTranslatef(sin((PI / 180.0) * angle), 0.0, 0.0);
    glTranslatef(3.5, 0.0, 0.0);
@@ -226,9 +265,9 @@ int main(int argc, char **argv)
    glutInitContextProfile(GLUT_COMPATIBILITY_PROFILE);
 
    glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA | GLUT_DEPTH);
-   glutInitWindowSize(500, 500);
+   glutInitWindowSize(720, 720);
    glutInitWindowPosition(100, 100);
-   glutCreateWindow ("clown3.cpp");
+   glutCreateWindow ("BakerMahintorabiClown");
    glutDisplayFunc(drawScene);
    glutReshapeFunc(resize);
    glutKeyboardFunc(keyInput);
