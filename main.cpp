@@ -136,6 +136,29 @@ void drawScene(void)
    glEnd();
 
    glPopMatrix();
+
+   glPushMatrix();//Body
+   glTranslatef(0,-4,0);
+   glScalef(1,2,1);
+   glutWireSphere(1,10,10);
+   glPopMatrix();//End body
+
+   glColor3f(1,0,0);//Right Foot
+   glPushMatrix();
+   glTranslatef(1.3,-6.0,0);
+   glRotatef(30,0,1,0);
+   glScalef(0.6,0.4,1.5);
+   glutWireCube(1);
+   glPopMatrix();//End Right foot
+
+   glColor3f(1,0,0);//Left Foot
+   glPushMatrix();
+   glTranslatef(-1.3, -6.0 + (sin( angle / 4.0 ) * 0.25), 0);
+   glRotatef(-30,0,1,0);
+   glRotatef(10 + (sin(angle) * 10 ), 0, 0, 1);
+   glScalef(0.6,0.4,1.5);
+   glutWireCube(1);
+   glPopMatrix();//End Left foot
    //*** clown3.cpp ends here. ***
 
 
